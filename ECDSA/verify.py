@@ -20,4 +20,4 @@ hashed_message = hash_message(message.encode())
 if(verify(hashed_message, signature, public_key)):
     print('Signature is valid!')
 else:
-    print('Signature is invalid!')
+    print('Signature is not valid!')
