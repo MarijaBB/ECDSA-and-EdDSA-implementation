@@ -1,11 +1,11 @@
 from public_data_and_methods import *
 
-public_key_in_coordinates = (0, 0)
-public_key = PointJacobi(SECP256k1.curve, public_key_in_coordinates[0], public_key_in_coordinates[1], 1)
-message = b''
-signature = (0, 0)
+with open("data.txt", "r") as f:
+    public_x, public_y, message, signature_r, signature_s = f.read().split(' ')
 
-hashed_message = hash_message(message)
+public_key = PointJacobi(SECP256k1.curve, int(public_x), int(public_y), 1)
+signature = (int(signature_r), int(signature_s))
+hashed_message = hash_message(message.encode())
 
 def verify(hashed_message, signature, public_key):
     r = signature[0]
