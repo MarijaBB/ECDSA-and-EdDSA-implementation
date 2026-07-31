@@ -1,5 +1,5 @@
 from public_data_and_methods import *
-import os, hashlib
+import os
 
 def clamping(h):
     h = bytearray(h)

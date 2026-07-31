@@ -19,6 +19,7 @@ s = int(data[2])
 signature = (R,s)
 
 message = data[3]
+
 if(verify(message, signature, public_key)):
     print('Signature is valid!')
 else:
