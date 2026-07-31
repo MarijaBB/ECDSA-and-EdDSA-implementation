@@ -1,5 +1,5 @@
 from pure25519.basic import Base, L
-from pure25519.basic import scalarmult_element, add_elements, encodepoint, bytes_to_element
+from pure25519.basic import scalarmult_element, encodepoint, bytes_to_element
 
 G = Base
 n = L

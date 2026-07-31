@@ -1,5 +1,5 @@
 from public_data_and_methods import *
-import os
+import secrets
 
 def clamping(h):
     h = bytearray(h)
@@ -8,11 +8,11 @@ def clamping(h):
     h[31] |= 64
     return h
 
-seed = os.urandom(32)
-h = hashlib.sha512(seed).digest()
+seed = secrets.token_bytes(32)
+hashed_seed = hashlib.sha512(seed).digest()
 
-private_key_bytes = clamping(h[:32])
-prefix = h[32:]
+private_key_bytes = clamping(hashed_seed[:32])
+prefix = hashed_seed[32:]
 
 private_key = int.from_bytes(private_key_bytes, "little")
 public_key = G.scalarmult(private_key)
