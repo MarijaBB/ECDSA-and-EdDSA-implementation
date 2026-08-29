@@ -1,5 +1,6 @@
 from private_and_public_key import *
-message = 'Alice'
+
+message = input('Enter a message: ')
 
 k = hash_message(prefix + message.encode()) % n
 R = G.scalarmult(k)

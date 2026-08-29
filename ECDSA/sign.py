@@ -10,7 +10,7 @@ def sign(hashed_message, private_key):
     s = (k_inv * (hashed_message + private_key * r)) % n
     return (r,s)
     
-message = 'Alice'
+message = input('Enter a message: ')
 hashed_message = hash_message(message.encode())
 signature = sign(hashed_message, private_key)
 
