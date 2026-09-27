@@ -16,3 +16,6 @@ prefix = hashed_seed[32:]
 
 private_key = int.from_bytes(private_key_bytes, "little")
 public_key = G.scalarmult(private_key)
+
+with open("keys.txt", "w") as f:
+    f.write(f"{public_key.to_bytes()}\n{private_key}\n{prefix}")
